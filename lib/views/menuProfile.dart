@@ -8,14 +8,14 @@ import 'dart:io';
 import 'package:aplikasiqu/modules/listStories.dart';
 import 'package:http/http.dart' as http;
 
-class viewHome extends StatefulWidget {
-  const viewHome({Key? key}) : super(key: key);
+class menuProfile extends StatefulWidget {
+  const menuProfile({Key? key}) : super(key: key);
 
   @override
-  State<viewHome> createState() => _viewHomeState();
+  State<menuProfile> createState() => _menuProfileState();
 }
 
-class _viewHomeState extends State<viewHome> {
+class _menuProfileState extends State<menuProfile> {
 
   //note: ini dari API
   List<Data> dataListApi = [];
@@ -261,68 +261,68 @@ class _viewHomeState extends State<viewHome> {
 
             // Profil info
             Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Row(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                children: [
+                  // Profil user
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    width: 100,
+                    height: 100,
+                    child: Stack(
+                      alignment: Alignment.center,
                       children: [
-                        // Profil user
                         Container(
-                          margin: EdgeInsets.symmetric(horizontal: 15),
-                          width: 100,
-                          height: 100,
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [Colors.red, Colors.amber],
-                                  ),
-                                  borderRadius: BorderRadius.circular(60),
-                                ),
-                              ),
-                              Container(
-                                width: 95,
-                                height: 95,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(60),
-                                    color: Colors.grey[300],
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      //image: NetworkImage("https://i1.wp.com/liburmulu.com/wp-content/uploads/2015/07/City-view-malam-hari-kota-Jakarta.jpg"),
-                                      image: AssetImage("assests/igprofil.jpeg"),
-                                    ),
-                                    border: Border.all(
-                                        color: Colors.white,
-                                        width: 4
-                                    )
-                                ),
-                              )
-                            ],
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [Colors.red, Colors.amber],
+                            ),
+                            borderRadius: BorderRadius.circular(60),
                           ),
                         ),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              InfoProfile(
-                                title: "Posts",
-                                total: 89.toString(),
+                        Container(
+                          width: 95,
+                          height: 95,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(60),
+                              color: Colors.grey[300],
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                //image: NetworkImage("https://i1.wp.com/liburmulu.com/wp-content/uploads/2015/07/City-view-malam-hari-kota-Jakarta.jpg"),
+                                image: AssetImage("assests/igprofil.jpeg"),
                               ),
-                              InfoProfile(
-                                title: "Followers",
-                                total: 729.toString(),
-                              ),
-                              InfoProfile(
-                                title: "Following",
-                                total: 756.toString(),
-                              ),
-                            ],
+                              border: Border.all(
+                                  color: Colors.white,
+                                  width: 4
+                              )
                           ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InfoProfile(
+                          title: "Posts",
+                          total: 89.toString(),
+                        ),
+                        InfoProfile(
+                          title: "Followers",
+                          total: 729.toString(),
+                        ),
+                        InfoProfile(
+                          title: "Following",
+                          total: 756.toString(),
                         ),
                       ],
                     ),
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: 15),
             // Username
@@ -342,24 +342,24 @@ class _viewHomeState extends State<viewHome> {
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: RichText(
                 text: TextSpan(
-                  text: "Look for something positive in every day, even if some days you have to look a little harder.",
-                  style: TextStyle(
-                    color: Colors.grey[700],
-                  ),
-                  children: [
-                    TextSpan(
-                      text: "#hastag\n",
-                      style: TextStyle(
-                        color: Colors.blue,
+                    text: "Look for something positive in every day, even if some days you have to look a little harder.",
+                    style: TextStyle(
+                      color: Colors.grey[700],
+                    ),
+                    children: [
+                      TextSpan(
+                        text: "#hastag\n",
+                        style: TextStyle(
+                          color: Colors.blue,
+                        ),
                       ),
-                    ),
-                    TextSpan(
-                      text: "Link goes here",
-                      style: TextStyle(
-                        color: Colors.blue,
-                      )
-                    ),
-                  ]
+                      TextSpan(
+                          text: "Link goes here",
+                          style: TextStyle(
+                            color: Colors.blue,
+                          )
+                      ),
+                    ]
                 ),
               ),
             ),
@@ -409,16 +409,16 @@ class _viewHomeState extends State<viewHome> {
                                     "https://picsum.photos/seed/${index + 237}/500/500",
                                   ),
                                 ),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 2,
-                              )
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2,
+                                )
                             ),
                           ),
-                          Text("Story ${index + 1}"),
                         ],
                       ),
-                    )
+                    ),
+                    Text("Story ${index + 1}"),
                   ],
                 ),
               ),
@@ -430,13 +430,13 @@ class _viewHomeState extends State<viewHome> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.grid_on_outlined),
+                    onPressed: () {},
+                    icon: Icon(Icons.grid_on_outlined),
                   ),
                   SizedBox(width: 10),
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.person_pin_outlined),
+                    onPressed: () {},
+                    icon: Icon(Icons.person_pin_outlined),
                   ),
                 ],
               ),
@@ -444,17 +444,17 @@ class _viewHomeState extends State<viewHome> {
             SizedBox(height: 5),
             // Feed
             GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 3,
-                  crossAxisSpacing: 3,
-                ),
-                itemCount: 20,
-                itemBuilder: (context, index) => Image.network(
-                  "https://picsum.photos/id/${64 + index}/500/500",
-                ),
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 3,
+                crossAxisSpacing: 3,
+              ),
+              itemCount: 20,
+              itemBuilder: (context, index) => Image.network(
+                "https://picsum.photos/id/${64 + index}/500/500",
+              ),
             )
           ],
         )

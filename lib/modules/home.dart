@@ -1,7 +1,11 @@
 import 'package:aplikasiqu/modules/viewHome.dart';
+import 'package:aplikasiqu/views/menuSearch.dart';
+import 'package:aplikasiqu/views/menuShop.dart';
 import 'package:aplikasiqu/views/viewLogin.dart';
 import 'package:aplikasiqu/views/viewLoginn.dart';
 import 'package:flutter/material.dart';
+
+import '../views/menuProfile.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -15,25 +19,15 @@ class _homeState extends State<home> {
   int currentIndex = 0;
   final List<Widget> body = [
     viewHome(),
-    Center(
-      child: Text(
-        'Search',
-        style: TextStyle(fontSize: 20),
-      ),
-    ),
+    menuSearch(),
     Center(
       child: Text(
         'Reels',
         style: TextStyle(fontSize: 20),
       ),
     ),
-    Center(
-      child: Text(
-        'Shop',
-        style: TextStyle(fontSize: 20),
-      ),
-    ),
-    viewLoginn(),
+    menuShop(),
+    menuProfile(),
   ];
 
   @override
@@ -60,7 +54,7 @@ class _homeState extends State<home> {
           ),
           BottomNavigationBarItem(
             label: "",
-            icon: Icon(Icons.shop_outlined, color: Colors.black,),
+            icon: Icon(Icons.shopping_bag_outlined, color: Colors.black,),
           ),
           BottomNavigationBarItem(
             label: "",
